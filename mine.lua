@@ -1,12 +1,12 @@
 local downCount = 0
-local forwardCOunt = 0
+local forwardCount = 0
 local y = 66
 
 function fish()
     turtle.digUp()
     turtle.dig()
     turtle.forward()
-    forwardCOunt = forwardCOunt + 1
+    forwardCount = forwardCount + 1
 end
 
 function checkFuel()
@@ -14,12 +14,14 @@ function checkFuel()
 end
 
 function fallback()
-    while forwardCOunt > 0 do
+    while forwardCount > 0 do
         turtle.back()
+        forwardCount = forwardCount - 1
     end
 
     while downCount > 0 do
         turtle.up()
+        downCount = downCount - 1
     end
 end
 
@@ -30,7 +32,7 @@ while y > 12 do
     y = y - 1
 end
 
-while forwardCOunt <= 100 do
+while forwardCount <= 100 do
     fish()
 end
 
