@@ -3,9 +3,9 @@ local forwardCount = 0
 local y = 66
 
 function fish()
-    turtle.digUp()
     turtle.dig()
     turtle.forward()
+    turtle.digUp()
     forwardCount = forwardCount + 1
 end
 
